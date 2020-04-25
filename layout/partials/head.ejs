@@ -28,7 +28,12 @@ if (is_home()) pageTitle+= config.subtitle;
     <meta name="description" content="<%= page.description || page.title || (config.title + ',' + config.subtitle) %>" />
   <% } %>
   
-  <link rel="icon" type="image/x-icon" href="/logo.png">
+  <% if (theme.favicon){ %>
+	<link rel="icon" type="image/x-icon" href="<%=theme.favicon %>">
+  <% } else {  %>
+	<link rel="icon" type="image/x-icon" href="/logo.jpeg">
+  <% } %>
+  
   <title><%=pageTitle%></title>
   <% if (theme.stylesheets !== undefined && theme.stylesheets.length > 0) { %>
     <!-- stylesheets list from config.yml -->
